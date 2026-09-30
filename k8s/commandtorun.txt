@@ -1,0 +1,2 @@
+1. kubectl apply ALL FILES
+2. kubectl port-forward service/ingress-nginx-controller -n ingress-nginx 7070:80 --address=0.0.0.0

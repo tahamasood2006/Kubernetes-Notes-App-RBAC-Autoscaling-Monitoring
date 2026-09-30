@@ -1,0 +1,22 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: notes-autoscaler
+  namespace: notes-app-ns
+
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: django-app-deployment
+    apiVersion: apps/v1
+  
+  minReplicas: 1
+  maxReplicas: 4
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target: 
+          type: Utilization
+          averageUtilization: 90

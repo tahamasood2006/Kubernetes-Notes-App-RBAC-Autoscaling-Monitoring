@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata: 
+  name: nginx-app-service
+  namespace: notes-app-ns
+spec:
+  selector: 
+    app: nginx-app-label
+  ports:
+  - protocol: TCP
+    port: 8090
+    targetPort: 80
+
+  type: ClusterIP

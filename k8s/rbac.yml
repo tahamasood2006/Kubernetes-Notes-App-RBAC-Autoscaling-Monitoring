@@ -1,0 +1,12 @@
+kind: Role 
+apiVersion: rbac.authorization.k8s.io/v1
+
+metadata:
+
+  name: cluster-manager
+  namespace: notes-app-ns
+
+rules:
+  - apiGroups: ["","batch","apps","rbac.authorization.k8s.io"] # or ["*"] for giving all access
+    resources: ["pod","deployment","service"]
+    verbs: ["apply","get","delete","watch","create","patch"]

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app-deployment
+  namespace: notes-app-ns
+  labels:
+    app: django-app-label
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: django-app-label
+  template:
+    metadata:
+      labels:
+        app: django-app-label
+    spec:
+      containers:
+      - name: django-app-container
+        image: tha111/nodesk8sproj:latest
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            cpu: 200m
+            memory: 256Mi
+          limits:
+            cpu: 400m
+            memory: 512Mi

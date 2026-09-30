@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata: 
+  name: django-app-service
+  namespace: notes-app-ns
+spec:
+  selector: 
+    app: django-app-label
+  ports:
+  - protocol: TCP
+    port: 8005
+    targetPort: 8000
+
+  type: ClusterIP
