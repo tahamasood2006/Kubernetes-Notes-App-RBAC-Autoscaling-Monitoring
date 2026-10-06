@@ -1,5 +1,5 @@
 
-# WILL DELETE LATER WE ARE USING HPA NOW
+
 
 kind: VerticalPodAutoscaler
 apiVersion: autoscaling.k8s.io/v1
